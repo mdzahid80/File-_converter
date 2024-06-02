@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Converter</title>
+    <!-- Include Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Include Socket.IO client library -->
+</head>
+
+
+<body>
+    <div class="container">
+        <h1>File Converter</h1>
+        <form id="uploadForm" method="post" action="{{ url_for('file_sel') }}" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="file">Choose file to upload</label>
+                <input type="file" class="form-control" id="file" name="file" required>
+            </div>
+            <div class="form-group">
+                <label for="convert_to">Convert to:</label>
+                <select class="form-control" id="convert_to" name="convert_to">
+                    <option value="pdf_to_word">PDF TO WORD</option>
+                    <option value="img_to_pdf">IMG TO PDF</option>
+                    <option value="pdf_to_ppt">PDF TO PPT</option>
+                    <!-- Add more conversion options as needed -->
+                </select>
+
+            <button type="submit" class="btn btn-primary">Upload</button>
+        </form>
+
+
+        {% if msg %}
+        <p>Uploaded file: {{ msg }}</p>
+
+
+        {% endif %}
+
+        {% if error %}
+        <p class="text-danger">{{ error }}</p>
+        {% endif %}
+    </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
