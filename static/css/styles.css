@@ -1,12 +1,12 @@
 @charset "UTF-8";
 
-/* .success{
+.success{
   visibility: visible;
 }
 
 .error{
   visibility: hidden;
-} */
+}
 
 :root {
   --bs-blue: #0d6efd;
